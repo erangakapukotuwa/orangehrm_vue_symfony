@@ -1,6 +1,6 @@
 # Installation guid
 
-##Prerequisites
+## Prerequisites
 
 01. You needs to have apache server installed.
 02. PHP - 8.1 or higher - [Installing PHP](https://www.digitalocean.com/community/tutorials/how-to-install-php-8-1-and-set-up-a-local-development-environment-on-ubuntu-22-04)
