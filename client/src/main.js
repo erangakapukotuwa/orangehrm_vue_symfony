@@ -4,6 +4,7 @@ import { BootstrapVue } from 'bootstrap-vue'
 
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
+import config from './config'
 
 import App from './App.vue'
 import router from './router'
@@ -16,5 +17,6 @@ new Vue({
   router,
   pinia: createPinia(),
   render: (h) => h(App),
-  store
+  store,
+  config
 }).$mount('#app');

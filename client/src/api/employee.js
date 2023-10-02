@@ -1,5 +1,5 @@
 import axios from "axios";
-const apiEndpont = 'http://localhost:8000/api';
+import config from "../config";
 
 export function authHeader() {
   let user = JSON.parse(localStorage.getItem('currentUser'));
@@ -12,6 +12,6 @@ export function authHeader() {
 
 export default {
   findOne(employeeId) {
-    return axios.get(apiEndpont.concat(`/employee/${employeeId}`), {headers : authHeader()});   
+    return axios.get(config.API_LOCATION.concat(`/employee/${employeeId}`), {headers : authHeader()});   
   }
 };

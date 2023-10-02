@@ -4,7 +4,7 @@ import Header from '@/components/common/Header.vue'
 
 <template>
   <div id="app">
-    <Header :isLoggedIn="isLoggedIn" />
+    <Header />
     <b-container fluid="sm" class="page-container">
       <router-view />
     </b-container>

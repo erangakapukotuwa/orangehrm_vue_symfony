@@ -1,12 +1,21 @@
-# orangehrm_vue_symfony
+# Installation guid
+
+##Prerequisites
+
+01. You needs to have apache server installed.
+02. PHP - 8.1 or higher - [Installing PHP](https://www.digitalocean.com/community/tutorials/how-to-install-php-8-1-and-set-up-a-local-development-environment-on-ubuntu-22-04)
+03. MairaDB - 10.3 or higher - [Installing MariaDB on Limux](https://www.digitalocean.com/community/tutorials/how-to-install-mariadb-on-ubuntu-20-04)
+04. NodeJS - 18.0.0 or higher - [Installing Node using NVM](https://medium.com/geekculture/how-to-install-node-js-by-nvm-61addf4ab1ba)
+
+
 
 Clone the project from the github.
 
-    `git clone git@github.com:erangakapukotuwa/orangehrm_vue_symfony.git`
+    git clone git@github.com:erangakapukotuwa/orangehrm_vue_symfony.git
 
 got to the project directory 
 
-    `orangehrm_vue_symfony`
+    orangehrm_vue_symfony
 
 There are two seperate directories for api(backend) and the client(frontend).
 
@@ -15,7 +24,7 @@ There are two seperate directories for api(backend) and the client(frontend).
 ## How to setup the backend(api)
 Let's first setup the backend.
 
-go to api folder
+go to the api folder
 
     cd api
 
@@ -29,9 +38,9 @@ run composer to install the packages.
 
 It will create a `vendor` folder. The vendor folder includes all the core and supportive packages.
 
-Next you shold setup the database. Therefor you to run the required migrations scripts and the Fixtures for data seeding. 
+Next you shold setup the database. Therefor you to create the database, run the required migrations scripts and the Fixtures for data seeding. 
 
-First create a database in your MairaDB database using the CLI or your favorite db client. Don't forget to update the .env file with the respective db name.
+First create a database in your MairaDB database using the CLI or your favorite db client. Don't forget to update the .env file with the respective db name. Makesure you have the mentioned MariaDB version installed in your computer, other wise the value of `serverVersion` is significutly different. 
 
     DATABASE_URL="mysql://<db_username>:<db_password>@<db_host>:<db_port>/<db_name>?serverVersion=<db_version>-MariaDB"
 
@@ -87,6 +96,9 @@ Run an `npm install` to install the packages.
 
     npm install
 
+Now you need to configure the backend url in the front-end configurations. Edit the file at `config/index.js`
+
+    API_LOCATION: 'http://localhost:8000/api'
 
 Now you can start the dev server using the below command.
 
