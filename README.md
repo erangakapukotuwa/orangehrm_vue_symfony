@@ -109,3 +109,37 @@ That's it. The frontend will available under the below url
     http://localhost:5174/
 
 And this will be indicate on cli the after runninig the dev server.
+
+
+
+## How to run UNIT TEST
+
+First of all we we need to create a new `.env` file for our test environment. Create a `.env.test` file from our `.env.template` file.
+
+    cp .env.template .env.test
+
+Create a new database in your database. 
+
+    ex: orangehrm_unit_test
+
+Symfony UnitTesting library usually surfix the database name as `_test`. So please makesure, that you are mentioning the db name without `_test` sufix in your `.env.test` file.
+
+    ex: orangehrm_unit
+
+    DATABASE_URL="mysql://<db_username>:<db_password>@<db_host>:<db_port>/<db_name>?serverVersion=<db_version>-MariaDB"
+
+
+Next run the migration scripts. This will create the required database tables on your test database. Don't forget to add the `--env=test` option when you are running this command.
+
+    php bin/console doctrine:migrations:migrate --env=test
+
+
+Next run the fixutes and feed test data to the database. Don't forget to add the `--env=test` option when you are running this command.
+
+
+    php bin/console doctrine:fixtures:load --env=test
+
+
+Next run the UNIT TEST command to execute the Unit test.
+
+    php bin/phpunit
